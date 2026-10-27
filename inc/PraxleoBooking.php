@@ -1,6 +1,7 @@
 <?php
 
 namespace Praxleo\Booking;
+use Praxleo\Booking\Traits\PluginLinks;
 
 defined( 'ABSPATH' ) || exit;
 /**
@@ -11,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
  * @package Praxleo_Booking
  */
 final class PraxleoBooking {
+
+	use PluginLinks;
 
 	/**
 	 * The single instance of the class.
@@ -25,6 +28,48 @@ final class PraxleoBooking {
 	private function __construct() {
 		$this->load_dependencies();
 		$this->register_hooks();
+
+		add_filter( 'plugin_action_links_' . plugin_basename( PX_BOOKING_FILE ), array( $this, 'action_links' ) );
+		add_filter( 'plugin_row_meta', array( $this, 'add_row_meta' ), 10, 2 );
+	}
+
+	/**
+	 * Add plugin action links.
+	 *
+	 * @param array $links Existing plugin action links.
+	 * @return array Modified plugin action links.
+	 */
+	public function action_links( array $links ): array {
+		$settings_link = sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url( $this->get_settings_url() ),
+			esc_html__( 'Settings', 'praxleo-booking' )
+		);
+
+		array_unshift( $links, $settings_link );
+
+		return $links;
+	}
+
+	/**
+	 * Add metadata links to the plugin row.
+	 *
+	 * @param array  $plugin_meta Existing plugin metadata.
+	 * @param string $plugin_file Plugin file path.
+	 * @return array Modified plugin metadata.
+	 */
+	public function add_row_meta( array $plugin_meta, string $plugin_file ): array {
+		if ( plugin_basename( PX_BOOKING_FILE ) !== $plugin_file ) {
+			return $plugin_meta;
+		}
+
+		$plugin_meta[] = sprintf(
+			'<a href="%1$s" target="_blank" rel="noopener noreferrer"><span class="dashicons dashicons-media-document" aria-hidden="true"></span> %2$s</a>',
+			esc_url( $this->get_documentation_url() ),
+			esc_html__( 'Documentation', 'praxleo-booking' )
+		);
+
+		return $plugin_meta;
 	}
 
 	/**
