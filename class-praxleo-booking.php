@@ -114,6 +114,11 @@ if ( ! class_exists( 'Praxleo_Booking' ) ) {
 	}
 }
 
+/**
+ * Plugin helper functions.
+ *
+ * @package Praxleo_Booking
+ */
 if ( ! function_exists( 'praxleo_booking' ) ) {
 	/**
 	 * Return the main plugin instance.
