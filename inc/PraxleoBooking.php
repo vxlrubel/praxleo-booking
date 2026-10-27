@@ -1,7 +1,9 @@
 <?php
 
 namespace Praxleo\Booking;
+
 use Praxleo\Booking\Traits\PluginLinks;
+use Praxleo\Booking\Admin\AdminMenu;
 
 defined( 'ABSPATH' ) || exit;
 /**
@@ -31,6 +33,8 @@ final class PraxleoBooking {
 
 		add_filter( 'plugin_action_links_' . plugin_basename( PX_BOOKING_FILE ), array( $this, 'action_links' ) );
 		add_filter( 'plugin_row_meta', array( $this, 'add_row_meta' ), 10, 2 );
+
+		$this->register_admin_menu();
 	}
 
 	/**
@@ -70,6 +74,12 @@ final class PraxleoBooking {
 		);
 
 		return $plugin_meta;
+	}
+
+	public function register_admin_menu() {
+		if ( is_admin() ) {
+			new AdminMenu();
+		}
 	}
 
 	/**
