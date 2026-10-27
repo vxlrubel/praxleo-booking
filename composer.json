@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Praxleo\\Booking\\": "src/"
+            "Praxleo\\Booking\\": "inc/"
         }
     },
     "config": {
