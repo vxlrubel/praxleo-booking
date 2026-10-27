@@ -11,5 +11,12 @@
     "intelephense.diagnostics.undefinedFunctions": false,
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+	"editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "[php]": {
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4
+    },
 }
