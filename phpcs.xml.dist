@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="Praxleo Booking">
+    <description>WordPress Coding Standards for Praxleo Booking.</description>
+
+    <rule ref="WordPress">
+        <exclude name="WordPress.Files.FileName"/>
+        <exclude name="Squiz.Commenting.FileComment"/>
+    </rule>
+</ruleset>

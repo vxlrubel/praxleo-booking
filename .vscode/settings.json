@@ -1,7 +1,7 @@
 
 {
-    "phpcs.executablePath": "C:\\Users\\USER\\AppData\\Roaming\\Composer\\vendor\\bin\\phpcs.bat",
-    "phpcs.standard": "WordPress",
+    "phpcs.executablePath": "C:\\Users\\YOUR_USERNAME\\AppData\\Roaming\\Composer\\vendor\\bin\\phpcs.bat",
+    "phpcs.standard": "./phpcs.xml.dist",
     "phpcs.enable": true,
     "phpcs.showWarnings": true,
     "phpcs.showErrors": true,
@@ -12,11 +12,11 @@
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-	"editor.insertSpaces": false,
+    "editor.insertSpaces": false,
     "editor.detectIndentation": false,
     "[php]": {
         "editor.insertSpaces": false,
         "editor.detectIndentation": false,
         "editor.tabSize": 4
-    },
+    }
 }
