@@ -11,8 +11,8 @@
 .px-modal{
 	--px-modal-max-width: 960px;
 	--px-modal-padding: 1.125rem;
-	--px-footer-height: 65px;
-	--px-close-button-size: 65px;
+	--px-footer-height: 55px;
+	--px-close-button-size: 55px;
 	position: fixed;
 	z-index: 99999;
 	background-color: rgba(0, 0, 0, 0.35);
@@ -21,7 +21,7 @@
 	box-sizing: border-box;
 	font-size: 16px;
 	opacity: 0;
-	animation: px-fadein 0.2s linear forwards;
+	animation: px-fadein 0.15s linear forwards;
 	*,
 	*::before,
 	*::after{
@@ -39,7 +39,7 @@
 	max-height: 100%;
 	opacity: 0;
 	transform: translateY(20px);
-	animation: fadeinTranslateY 0.2s linear forwards 0.2s;
+	animation: fadeinTranslateY 0.15s linear forwards 0.1s;
 }
 .px-modal .px-modal-header{
 	display: flex;

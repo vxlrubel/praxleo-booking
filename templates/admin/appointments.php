@@ -13,7 +13,7 @@
 			<div class="px-modal-content">
 				<div class="px-modal-header">
 					<div class="px-modal-title"><?php esc_html_e( 'Add New Appointment', 'praxleo-booking' ); ?></div>
-					<button type="button" class="px-close-button"><span class="dashicons dashicons-no-alt" @click="close_add_new_appointment_modal()"></span></button>
+					<button type="button" class="px-close-button" @click="close_add_new_appointment_modal()"><span class="dashicons dashicons-no-alt" ></span></button>
 				</div>
 
 				<div class="px-modal-body">
