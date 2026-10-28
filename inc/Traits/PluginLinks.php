@@ -51,7 +51,7 @@ trait PluginLinks {
 	 * @return string
 	 */
 	protected function get_appointment_slug(): string {
-		return self::$prefix . 'appointment';
+		return self::$prefix . 'appointments';
 	}
 
 	/**
@@ -60,7 +60,7 @@ trait PluginLinks {
 	 * @return string
 	 */
 	protected function get_service_slug(): string {
-		return self::$prefix . 'service';
+		return self::$prefix . 'services';
 	}
 
 	/**
@@ -69,7 +69,7 @@ trait PluginLinks {
 	 * @return string
 	 */
 	protected function get_category_slug(): string {
-		return self::$prefix . 'category';
+		return self::$prefix . 'categories';
 	}
 
 	/**
@@ -78,7 +78,7 @@ trait PluginLinks {
 	 * @return string
 	 */
 	protected function get_employee_slug(): string {
-		return self::$prefix . 'employee';
+		return self::$prefix . 'employees';
 	}
 
 	/**
@@ -87,7 +87,70 @@ trait PluginLinks {
 	 * @return string
 	 */
 	protected function get_customer_slug(): string {
-		return self::$prefix . 'customer';
+		return self::$prefix . 'customers';
+	}
+
+	/**
+	 * Get the booking location slug.
+	 *
+	 * @return string
+	 */
+	protected function get_location_slug(): string {
+		return self::$prefix . 'locations';
+	}
+
+	/**
+	 * Get the booking company slug.
+	 *
+	 * @return string
+	 */
+	protected function get_company_slug(): string {
+		return self::$prefix . 'company';
+	}
+
+	/**
+	 * Get the booking feature slug.
+	 *
+	 * @return string
+	 */
+	protected function get_feature_slug(): string {
+		return self::$prefix . 'features';
+	}
+
+	/**
+	 * Get the booking holiday slug.
+	 *
+	 * @return string
+	 */
+	protected function get_holiday_slug(): string {
+		return self::$prefix . 'holidays';
+	}
+
+	/**
+	 * Get the booking email notification slug.
+	 *
+	 * @return string
+	 */
+	protected function get_email_notification_slug(): string {
+		return self::$prefix . 'email-notifications';
+	}
+
+	/**
+	 * Get the booking email notification slug.
+	 *
+	 * @return string
+	 */
+	protected function get_payment_methods_slug(): string {
+		return self::$prefix . 'payment-methods';
+	}
+
+	/**
+	 * Get the booking settings slug.
+	 *
+	 * @return string
+	 */
+	protected function get_settings_slug(): string {
+		return self::$prefix . 'settings';
 	}
 
 }
