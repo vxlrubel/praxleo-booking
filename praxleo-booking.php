@@ -24,6 +24,9 @@ define( 'PX_BOOKING_DB_VERSION', '1.0.0' );
 define( 'PX_BOOKING_FILE', __FILE__ );
 define( 'PX_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PX_BOOKING_URL', plugin_dir_url( __FILE__ ) );
+define( 'PX_LIB_GLOBAL', trailingslashit( PX_BOOKING_URL . 'lib/global' ) );
+define( 'PX_ADMIN_CSS_URL', trailingslashit( PX_BOOKING_URL . 'lib/admin/css' ) );
+define( 'PX_ADMIN_JS_URL', trailingslashit( PX_BOOKING_URL . 'lib/admin/js' ) );
 
 $praxleo_autoloader = PX_BOOKING_PATH . 'vendor/autoload.php';
 

@@ -4,6 +4,7 @@ namespace Praxleo\Booking;
 
 use Praxleo\Booking\Traits\PluginLinks;
 use Praxleo\Booking\Admin\AdminMenu;
+use Praxleo\Booking\Admin\AdminAssets;
 
 defined( 'ABSPATH' ) || exit;
 /**
@@ -79,6 +80,7 @@ final class PraxleoBooking {
 	public function register_admin_menu() {
 		if ( is_admin() ) {
 			new AdminMenu();
+			new AdminAssets();
 		}
 	}
 
