@@ -1,5 +1,6 @@
 :root{
 	--px-theme-color: hsl(210, 100%, 57%);
+	--px-theme-color-light: hsl(210, 100%, 95%);
 }
 
 [v-cloak]{
@@ -7,7 +8,23 @@
 }
 
 /* modal style */
-
+.inline-center{
+	display: inline-flex !important;
+	justify-content: center;
+	align-items: center;
+}
+.column-enable-disable-field{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 1rem;
+	label{
+		border-radius: 4px;
+	}
+	label:has(:checked){
+		color: var(--px-theme-color);
+	}
+}
 .px-modal{
 	--px-modal-max-width: 960px;
 	--px-modal-padding: 1.125rem;

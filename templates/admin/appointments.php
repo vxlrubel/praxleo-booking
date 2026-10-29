@@ -24,14 +24,6 @@
 		</li>
 	</ul>
 
-	<div style="display: block">
-		<label for="">
-			<input type="checkbox" v-model="table_columns.ref_id"> RefID {{table_columns.ref_id}}
-		</label>
-	</div>
-
-
-
 	<form method="get">
 		<p class="search-box">
 			<label class="screen-reader-text" for="post-search-input">Search Appoientment:</label>
@@ -70,37 +62,26 @@
 					Filter
 				</button>
 			</div>
-			<div class="alignleft actions">
+			<div class="alignright actions" style="padding-right: 0;">
 				<button type="button" class="button button-compact">
 					Export
 				</button>
 			</div>
-			<div class="alignleft actions">
+			<div class="alignright actions">
 				<button type="button" class="button button-compact">
 					Import
 				</button>
 			</div>
-			<div class="tablenav-pages one-page">
-				<span class="displaying-num">1 item</span>
-				<span class="pagination-links"
-					><span class="tablenav-pages-navspan button disabled" aria-hidden="true">«</span>
-					<span class="tablenav-pages-navspan button disabled" aria-hidden="true">‹</span>
-					<span class="paging-input"
-						><label for="current-page-selector" class="screen-reader-text">Current Page</label
-						><input
-							class="current-page"
-							id="current-page-selector"
-							type="text"
-							name="paged"
-							value="1"
-							size="1"
-							aria-describedby="table-paging"
-						/><span class="tablenav-paging-text"> of <span class="total-pages">1</span></span></span
-					>
-					<span class="tablenav-pages-navspan button disabled" aria-hidden="true">›</span>
-					<span class="tablenav-pages-navspan button disabled" aria-hidden="true">»</span></span
-				>
+			<div class="alignright actions">
+				<button
+					@click="open_filter_options = true"
+					type="button" class="button button-compact inline-center">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16px" width="16px" fill="currentColor">
+						<path d="M5,20V13H3V11H9v2H7v7H5ZM5,9V4H7V9H5ZM9,9V7h2V4h2V7h2V9H9Zm2,11V11h2v9H11Zm6,0V17H15V15h6v2H19v3H17Zm0-7V4h2v9H17Z"/>
+					</svg>
+				</button>
 			</div>
+
 			<br class="clear" />
 		</div>
 
@@ -117,8 +98,12 @@
 						<label for="cb-select-all-1"><span class="screen-reader-text">Select All</span></label>
 					</td>
 					<td scope="col" class="manage-column" style="max-width: 150px; width: 150px;"  v-if="table_columns.ref_id">Reference ID</td>
-					<td scope="col" class="manage-column" style="max-width: 150px; width: 150px;">Appointment Date</td>
-					<th scope="col" id="service" class="manage-column column-title column-primary sortable desc" abbr="Service">
+					<td
+						v-if="table_columns.appointment_date"
+						scope="col" class="manage-column" style="max-width: 150px; width: 150px;">Appointment Date</td>
+					<th
+						v-if="table_columns.service"
+						scope="col" id="service" class="manage-column column-title column-primary sortable desc" abbr="Service">
 						<a href="javascript:void(0)">
 							<span>Service</span >
 							<span class="sorting-indicators">
@@ -128,11 +113,21 @@
 							<span class="screen-reader-text">Sort ascending.</span>
 						</a>
 					</th>
-					<td scope="col" class="manage-column column-title">Customer</td>
-					<td scope="col" class="manage-column column-title">Categories</td>
-					<td scope="col" class="manage-column column-title">Price</td>
-					<td scope="col" class="manage-column column-title">Payment Status</td>
-					<td scope="col" class="manage-column column-title">Created At</td>
+					<td
+						v-if="table_columns.customer"
+						scope="col" class="manage-column column-title">Customer</td>
+					<td
+						v-if="table_columns.category"
+						scope="col" class="manage-column column-title">Categories</td>
+					<td
+						v-if="table_columns.price"
+						scope="col" class="manage-column column-title">Price</td>
+					<td
+						v-if="table_columns.payment_status"
+						scope="col" class="manage-column column-title">Payment Status</td>
+					<td
+						v-if="table_columns.created_at"
+						scope="col" class="manage-column column-title">Created At</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -162,29 +157,43 @@
 							</span>
 						</div>
 					</td>
-					<td scope="row" class="has-row-actions column-primary">
+					<td
+						v-if="table_columns.appointment_date"
+						scope="row" class="has-row-actions column-primary">
 							20 Oct 2026 at 7:29 pm
 					</td>
-					<td scope="row" class="has-row-actions column-primary">
+					<td
+						v-if="table_columns.service"
+						scope="row" class="has-row-actions column-primary">
 						<strong>
 							<a href="javascript:void(0)">
 								Hepatytis B Vaccine
 							</a>
 						</strong>
 					</td>
-					<td scope="row" class="has-row-actions column-primary">
+					<td
+						v-if="table_columns.customer"
+						scope="row" class="has-row-actions column-primary">
 						<a href="javascript:void(0)">Elizabeth Anderson</a>
 					</td>
-					<td scope="row" class="has-row-actions column-primary">
+					<td
+						v-if="table_columns.category"
+						scope="row" class="has-row-actions column-primary">
 						<a href="javascript:void(0)">Oral Vaccine</a>
 					</td>
-					<td scope="row" class="has-row-actions column-primary">
+					<td
+						v-if="table_columns.price"
+						scope="row" class="has-row-actions column-primary">
 						$29.99
 					</td>
-					<td scope="row" class="has-row-actions column-primary">
+					<td
+						v-if="table_columns.payment_status"
+						scope="row" class="has-row-actions column-primary">
 						Pending
 					</td>
-					<td scope="row" class="has-row-actions column-primary">
+					<td
+						v-if="table_columns.created_at"
+						scope="row" class="has-row-actions column-primary">
 						2026/10/20 at 7:29 pm
 					</td>
 				</tr>
@@ -211,8 +220,77 @@
 				</div>
 
 				<div class="px-modal-footer">
-					<button type="button" class="px-primacy-button" @click="close_add_new_appointment_modal()">Close</button>
-					<button type="button" class="px-primacy-button">Save Changes</button>
+					<button type="button" class="button" @click="close_add_new_appointment_modal()">Close</button>
+					<button type="button" class="button button-primary">Save Changes</button>
+				</div>
+
+			</div>
+		</div>
+	</template>
+
+	<template v-if="open_filter_options">
+		<div
+			style="--px-modal-max-width: 720px;"
+			class="px-modal">
+			<div class="px-modal-content">
+				<div class="px-modal-header">
+					<div class="px-modal-title"><?php esc_html_e( 'Settings', 'praxleo-booking' ); ?></div>
+					<button
+						@click="open_filter_options = false"
+						type="button" class="px-close-button">
+						<span class="dashicons dashicons-no-alt" ></span>
+					</button>
+				</div>
+
+				<div class="px-modal-body">
+					<strong>Table List column:</strong>
+					<div class="column-enable-disable-field">
+						<label
+							@click="table_columns.ref_id = !table_columns.ref_id"
+							for="refId">
+							<input type="checkbox" v-model="table_columns.ref_id" id="refId"> Reference ID
+						</label>
+						<label
+							@click="table_columns.appointment_date = !table_columns.appointment_date"
+							for="appointmentID">
+							<input type="checkbox" v-model="table_columns.appointment_date" id="appointmentID"> Appointment Date
+						</label>
+						<label
+							@click="table_columns.service = !table_columns.service"
+							for="serviceID">
+							<input type="checkbox" v-model="table_columns.service" id="serviceID"> Service
+						</label>
+						<label
+							@click="table_columns.customer = !table_columns.customer"
+							for="customerID">
+							<input type="checkbox" v-model="table_columns.customer" id="customerID"> Customer
+						</label>
+						<label
+							@click="table_columns.category = !table_columns.category"
+							for="catID">
+							<input type="checkbox" v-model="table_columns.category" id="catID"> Categories
+						</label>
+						<label
+							@click="table_columns.price = !table_columns.price"
+							for="priceID">
+							<input type="checkbox" v-model="table_columns.price" id="priceID"> Price
+						</label>
+						<label
+							@click="table_columns.payment_status = !table_columns.payment_status"
+							for="paymentID">
+							<input type="checkbox" v-model="table_columns.payment_status" id="paymentID"> Payment Status
+						</label>
+						<label
+							@click="table_columns.created_at = !table_columns.created_at"
+							for="createID">
+							<input type="checkbox" v-model="table_columns.created_at" id="createID"> Created At
+						</label>
+					</div>
+				</div>
+
+				<div class="px-modal-footer">
+					<button type="button" class="button" @click="open_filter_options = false">Close</button>
+					<button type="button" class="button button-primary">Save Changes</button>
 				</div>
 
 			</div>
