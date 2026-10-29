@@ -5,6 +5,7 @@ namespace Praxleo\Booking;
 use Praxleo\Booking\Traits\PluginLinks;
 use Praxleo\Booking\Admin\AdminMenu;
 use Praxleo\Booking\Admin\AdminAssets;
+use Praxleo\Booking\Frontend\BookingShortcode;
 
 defined( 'ABSPATH' ) || exit;
 /**
@@ -36,6 +37,8 @@ final class PraxleoBooking {
 		add_filter( 'plugin_row_meta', array( $this, 'add_row_meta' ), 10, 2 );
 
 		$this->register_admin_menu();
+
+		$this->init_frontend();
 	}
 
 	/**
@@ -82,6 +85,10 @@ final class PraxleoBooking {
 			new AdminMenu();
 			new AdminAssets();
 		}
+	}
+
+	public function init_frontend(){
+		new BookingShortcode();
 	}
 
 	/**

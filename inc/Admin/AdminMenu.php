@@ -3,6 +3,7 @@
 namespace Praxleo\Booking\Admin;
 
 use Praxleo\Booking\Traits\PluginLinks;
+use Praxleo\Booking\Traits\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -14,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 class AdminMenu {
 
 	use PluginLinks;
+	use Helper;
 
 	/**
 	 * Initialize the admin menu.
@@ -175,7 +177,7 @@ class AdminMenu {
 	 * @return void
 	 */
 	public function render_appointment(): void {
-		$this->get_file_content( 'admin/appointments.php' );
+		$this->get_template_file( 'admin/appointments.php' );
 	}
 
 	/**
@@ -319,19 +321,5 @@ class AdminMenu {
 			<h1><?php esc_html_e( 'Settings', 'praxleo-booking' ); ?></h1>
 		</div>
 		<?php
-	}
-
-	/**
-	 * Loads an admin template file.
-	 *
-	 * @param string $file The template file path relative to the plugin templates directory.
-	 * @return void
-	 */
-	public function get_file_content( string $file ): void {
-		$file_path = PX_BOOKING_PATH . 'templates/' . $file;
-
-		if ( file_exists( $file_path ) ) {
-			require $file_path;
-		}
 	}
 }
