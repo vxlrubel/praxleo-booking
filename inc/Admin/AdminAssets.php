@@ -1,6 +1,7 @@
 <?php
 
 namespace Praxleo\Booking\Admin;
+use Praxleo\Booking\Traits\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
  * @package Praxleo_Booking
  */
 class AdminAssets {
+
+	use Helper;
 
 	/**
 	 * Registers the admin asset enqueueing hook.
@@ -74,21 +77,6 @@ class AdminAssets {
 
 			wp_enqueue_style( 'praxleo-admin-appointment', PX_ADMIN_CSS_URL . 'appointment.css', array(), '1.0' );
 		}
-	}
-
-	/**
-	 * Retrieves the current admin page slug.
-	 *
-	 * @return string The sanitized admin page slug, or an empty string if unavailable.
-	 */
-	public function get_page_slug(): string {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading the admin page slug; no state-changing action occurs.
-		if ( isset( $_GET['page'] ) ) {
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading the admin page slug; no state-changing action occurs.
-			return sanitize_key( wp_unslash( $_GET['page'] ) );
-		}
-
-		return '';
 	}
 
 }
