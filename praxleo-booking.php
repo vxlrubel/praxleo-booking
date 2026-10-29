@@ -25,6 +25,8 @@ define( 'PX_BOOKING_FILE', __FILE__ );
 define( 'PX_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PX_BOOKING_URL', plugin_dir_url( __FILE__ ) );
 define( 'PX_LIB_GLOBAL', trailingslashit( PX_BOOKING_URL . 'lib/global' ) );
+define( 'PX_CSS_URL', trailingslashit( PX_BOOKING_URL . 'lib/frontend/css' ) );
+define( 'PX_JS_URL', trailingslashit( PX_BOOKING_URL . 'lib/frontend/js' ) );
 define( 'PX_ADMIN_CSS_URL', trailingslashit( PX_BOOKING_URL . 'lib/admin/css' ) );
 define( 'PX_ADMIN_JS_URL', trailingslashit( PX_BOOKING_URL . 'lib/admin/js' ) );
 

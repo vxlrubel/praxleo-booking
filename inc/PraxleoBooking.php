@@ -6,6 +6,7 @@ use Praxleo\Booking\Traits\PluginLinks;
 use Praxleo\Booking\Admin\AdminMenu;
 use Praxleo\Booking\Admin\AdminAssets;
 use Praxleo\Booking\Frontend\BookingShortcode;
+use Praxleo\Booking\Frontend\Assets;
 
 defined( 'ABSPATH' ) || exit;
 /**
@@ -89,6 +90,7 @@ final class PraxleoBooking {
 
 	public function init_frontend(){
 		new BookingShortcode();
+		new Assets();
 	}
 
 	/**
